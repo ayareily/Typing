@@ -12,6 +12,7 @@
 */
 
 Auth::routes();
+Route::get('/drills/new', 'DrillsController@new')->name('drills.new');
 Route::get('/', function () {
     return view('welcome');
 });
