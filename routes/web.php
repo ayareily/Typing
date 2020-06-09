@@ -13,7 +13,7 @@
 
 Auth::routes();
 Route::get('/drills/new', 'DrillsController@new')->name('drills.new');
-Route::get('/drills/create', 'DrillsController@create');
+Route::post('/drills/new', 'DrillsController@create');
 Route::get('/drills', 'DrillsController@index')->name('drills');
 Route::get('/drills/{id}/edit', 'DrillsController@edit')->name('drills.edit');
 Route::post('/drills/{id}/edit', 'DrillsController@update')->name('drills.update');
