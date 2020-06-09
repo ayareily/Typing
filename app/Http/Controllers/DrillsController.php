@@ -46,4 +46,17 @@ class DrillsController extends Controller
         $drill->fill($request->all())->save();
         return redirect('/drills/new');
     }
+
+    public function destroy($id)
+    {
+        // GETパラメータが数字かどうかをチェックする
+        if(!ctype_digit($id)){
+            return redirect('/drills/new')->with('flash_message', __('Invalid operation was performed.'));
+        }
+        
+        // こう書いた方がスマート
+        Drill::find($id)->delete();
+
+        return redirect('/drills')->with('flash_message', __('Deleted.'));
+    }
 }

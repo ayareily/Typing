@@ -55,8 +55,6 @@
                                 </div>
                             @endfor
 
-
-
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
@@ -65,6 +63,12 @@
                                 </div>
                             </div>
                         </form>
+
+                        <form action="{{ route('drills.delete',$drill->id ) }}" method="post" class="d-inline">
+                            @csrf
+                            <button class="btn btn-danger" onclick='return confirm("削除しますか？");'>{{ __('Go Delete')  }}</button>
+                        </form>
+
                     </div>
                 </div>
             </div>
