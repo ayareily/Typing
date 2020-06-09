@@ -17,6 +17,16 @@ class CreateDrillsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->integer('category_name');
+            $table->string('problem0');
+            $table->string('problem1')->nullable();
+            $table->string('problem2')->nullable();
+            $table->string('problem3')->nullable();
+            $table->string('problem4')->nullable();
+            $table->string('problem5')->nullable();
+            $table->string('problem6')->nullable();
+            $table->string('problem7')->nullable();
+            $table->string('problem8')->nullable();
+            $table->string('problem9')->nullable();
             $table->timestamps();
         });
     }
