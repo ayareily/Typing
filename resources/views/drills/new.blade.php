@@ -39,35 +39,23 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="problem0" class="col-md-4 col-form-label text-md-right">{{ __('Problem').'1' }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="problem0" type="text" class="form-control @error('problem0') is-invalid @enderror" name="problem0" value="{{ old('problem0') }}" autocomplete="problem0" autofocus>
-
-                                    @error('problem0')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-
                             @for ($i = 1; $i <= 10; $i++)
-                              <div class="form-group row">
-                                  <label for="problem0" class="col-md-4 col-form-label text-md-right">{{ __('Problem').$i }}</label>
+    <div class="form-group row">
+        <label for="problem0" class="col-md-4 col-form-label text-md-right">{{ __('Problem').$i }}</label>
 
-                                  <div class="col-md-6">
-                                      <input id="problem{{$i - 1}}" type="text" class="form-control @error('problem'.($i - 1)) is-invalid @enderror" name="problem{{$i - 1}}" value="{{ $drill['problem'.($i - 1)] }}" autocomplete="problem{{$i - 1}}" autofocus>
+        <div class="col-md-6">
+            <input id="problem{{$i - 1}}" type="text" class="form-control @error('problem'.($i - 1)) is-invalid @enderror" name="problem{{$i - 1}}" autocomplete="problem{{$i - 1}}" autofocus>
 
-                                      @error('problem'.($i - 1))
-                                      <span class="invalid-feedback" role="alert">
-                                      <strong>{{ $message }}</strong>
-                                  </span>
-                                      @enderror
-                                  </div>
-                              </div>
-                            @endfor
+            @error('problem'.($i - 1))
+            <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+            @enderror
+        </div>
+    </div>
+@endfor
+
+
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
