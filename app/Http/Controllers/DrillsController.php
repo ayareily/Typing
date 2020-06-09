@@ -27,5 +27,11 @@ class DrillsController extends Controller
             'problem8' => 'string|max:255',
             'problem9' => 'string|max:255',
         ]);
+
+        $drill = new Drill;
+
+        $drill->fill($request->all())->save();
+
+        return redirect('/drills/new')->with('flash_message', __('Registered.'));
     }
 }
