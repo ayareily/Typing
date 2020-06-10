@@ -38,4 +38,9 @@ class Drill extends Model
         'problem9' => 'string|max:255',
         ];
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

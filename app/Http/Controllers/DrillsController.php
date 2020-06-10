@@ -43,7 +43,9 @@ class DrillsController extends Controller
     public function create(Request $request)
     {
         $drill = new Drill;
-        $drill->fill($request->all())->save();
+        $drill->fill($request->all());
+        $drill->user_id = $request->user()->id;
+        $drill->save();
         return redirect('/drills/new');
     }
 
