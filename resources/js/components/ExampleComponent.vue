@@ -89,13 +89,8 @@
                 this.countDown()
             },
             countDown: function () {
-                // 効果音読み込み
-                const countSound = new Audio('../sounds/Countdown01-5.mp3')
-                const startSound = new Audio('../sounds/Countdown01-6.mp3')
 
                 this.isCountDown = true
-
-                this.soundPlay(countSound)
 
                 let timer = window.setInterval(() => {
                     this.countDownNum -= 1
@@ -113,23 +108,15 @@
                     }
 
                     countSound.currentTime = 0
-                    countSound.play()
                 }, 1000)
             },
             showFirstProblem: function () {
-
-                // 効果音読み込み
-                const okSound = new Audio('../sounds/punch-middle2.mp3')
-                const ngSound = new Audio('../sounds/sword-clash4.mp3')
-                const nextSound = new Audio('../sounds/punch-high2.mp3')
 
                 // 入力イベント時に入力キーと解答キーをチェック
                 $(window).on('keypress', e => {
                     console.log(e.which)
                     if(e.which === this.problemKeyCodes[this.currentWordNum]){
                         console.log('正解！！')
-
-                        this.soundPlay(okSound)
 
                         ++this.currentWordNum
                         ++this.wpm
@@ -141,12 +128,10 @@
                             ++this.currentProblemNum
                             this.currentWordNum = 0
 
-                            this.soundPlay(nextSound)
                         }
                     }else{
                         console.log('不正解です。。。。')
 
-                        this.soundPlay(ngSound)
                         ++this.missNum
 
                         console.log('現在回答の文字数目:' + this.currentWordNum)
@@ -154,13 +139,7 @@
 
                 })
             },
-            soundPlay: function(sound){
-                sound.currentTime = 0
-                sound.play()
-            },
             countTimer: function () {
-
-                const endSound = new Audio('../sounds/gong-played2.mp3')
 
                 let timer = window.setInterval(() => {
                     this.timerNum -= 1
@@ -169,7 +148,6 @@
                         this.isEnd = true
 
                         window.clearInterval(timer)
-                        endSound.play()
                     }
                 }, 1000)
             }
