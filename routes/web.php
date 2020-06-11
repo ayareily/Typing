@@ -12,6 +12,7 @@
 */
 
 Auth::routes();
+Route::group(['middleware' => 'auth'], function(){
 Route::get('/', 'DrillsController@index');
 Route::get('/drills/new', 'DrillsController@new')->name('drills.new');
 Route::post('/drills/new', 'DrillsController@create');
@@ -20,4 +21,5 @@ Route::get('/drills/{id}/edit', 'DrillsController@edit')->name('drills.edit');
 Route::post('/drills/{id}/edit', 'DrillsController@update')->name('drills.update');
 Route::post('/drills/{id}/delete', 'DrillsController@destroy')->name('drills.delete');
 Route::get('/drills/{id}', 'DrillsController@show')->name('drills.show');
-Route::get('/mypage', 'DrillsController@mypage')->name('drills.mypage')->middleware('check');
+Route::get('/mypage', 'DrillsController@mypage')->name('drills.mypage');
+});
