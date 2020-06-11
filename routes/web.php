@@ -20,6 +20,6 @@ Route::get('/drills', 'DrillsController@index')->name('drills');
 Route::get('/drills/{id}/edit', 'DrillsController@edit')->name('drills.edit');
 Route::post('/drills/{id}/edit', 'DrillsController@update')->name('drills.update');
 Route::post('/drills/{id}/delete', 'DrillsController@destroy')->name('drills.delete');
-Route::get('/drills/{id}', 'DrillsController@show')->name('drills.show');
 Route::get('/mypage', 'DrillsController@mypage')->name('drills.mypage');
 });
+Route::get('/drills/{id}', 'DrillsController@show')->name('drills.show');

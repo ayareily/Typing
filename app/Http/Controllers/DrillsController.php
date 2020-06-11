@@ -71,8 +71,8 @@ class DrillsController extends Controller
             return redirect('/drills/new')->with('flash_message', __('Invalid operation was performed.'));
         }
 
-        //$drill = Drill::find($id);
-        $drill = Auth::user()->drills()->find($id);
+        $drill = Drill::find($id);
+        //$drill = Auth::user()->drills()->find($id);
 
         return view('drills.show', ['drill' => $drill]);
     }

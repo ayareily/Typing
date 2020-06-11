@@ -12,7 +12,10 @@
                     <div class="card-body">
                         <h3 class="card-title">{{ $drill->title }}</h3>
                         <a href="{{ route('drills.show',$drill->id ) }}" class="btn btn-primary">{{ __('Go Practice')  }}</a>
-                        <a href="{{ route('drills.edit',$drill->id ) }}" class="btn btn-primary">{{ __('Go Edit')  }}</a>
+
+                        @if(Auth::id() === $drill->user_id)
+                            <a href="{{ route('drills.edit',$drill->id ) }}" class="btn btn-primary">{{ __('Go Edit')  }}</a>
+                        @endif
                     </div>
                 </div>
             </div>
